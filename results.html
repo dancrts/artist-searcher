@@ -53,25 +53,32 @@
                         <!-- Js Insert -->
                     </tbody>
                 </table>
-                <span>Entre todos estos artistas han vendido la maravillosa cantidad de: <span id="all-sales"
-                        class="fw-bold"></span> ventas!</span>
+                <span>Entre todos estos artistas han vendido la maravillosa cantidad de: <span id="total-sales-container"
+                        class="fw-bold"></span> copias!</span>
             </div>
             <div class="p-4 tab-pane fade" id="big-artists-tab-pane" role="tabpanel" aria-labelledby="big-artists-tab"
                 tabindex="0">
                 Estos son los artistas que han vendido una gran cantidad de albumes! (Mas de 1 millon)
-                <div class="flex flex-column mt-3" id="big-artists-table">
+                <div class="flex flex-column mt-3" id="big-artists-container">
                     <!-- JS insert -->
                 </div>
             </div>
             <div class="p-4 tab-pane fade" id="long-names-tab-pane" role="tabpanel" aria-labelledby="long-names-tab"
                 tabindex="0">
                 Artistas con nombres muy largos! :D
-                <div class="flex flex-column mt-3" id="long-names-table">
+                <div class="flex flex-column mt-3" id="long-names-container">
                     <!-- JS insert -->
                 </div>
             </div>
             <div class="p-4 tab-pane fade" id="search-artists-tab-pane" role="tabpanel" aria-labelledby="search-artists-tab">
-                Holoooo
+                <p class="mb-3 ">En este apartado puedes buscar los albumes de un artista!</p>
+                <div class="input-group mb-3">
+                    <input type="text" id="artist-input" class="form-control" placeholder="Ingrese el nombre del artista" aria-label="Ingrese el nombre del artista" aria-describedby="button-search">
+                    <button class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
+                </div>
+                <div class="container" id="searched-artists-container">
+                    <!-- Js insert -->
+                </div>
             </div>
         </div>
     </main>

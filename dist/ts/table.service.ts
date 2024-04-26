@@ -7,6 +7,9 @@ export class TablePopulator {
         }
         else if (albumType === "longName") {
             return `<div>${album.artist} tiene un nombre muy grande</div>`
+        } 
+        else if (albumType === "searchedByArtist") {
+            return `<div>El album ${album.name} tiene de ${album.artist} ha vendido ${album.sales} copias</div>`
         }
         else {
             return `<tr><td>${album.name}</td><td>${album.artist}</td><td>${album.sales}</td></tr>`
