@@ -1,4 +1,5 @@
 import { Album } from "./album.model";
+import { TablePopulator } from "./table-populator";
 
 const musicData: Album[] = [
     { artist: 'Adele', name: '25', sales: 1731000 },
@@ -13,41 +14,45 @@ const musicData: Album[] = [
     { artist: 'Justin Bieber', name: 'Purpose', sales: 554000 }
 ];
 
+//get data containers
 const artistsTable = document.getElementById("all-artist-table");
 const longNamesTable = document.getElementById("long-names-table");
 const bigArtistsTable = document.getElementById("big-artists-table");
+const allSales = document.getElementById("all-sales");
 
+//get buttons that trigger those actions
 const artistsPane = document.getElementById("artists-tab");
 const longNamesPane = document.getElementById("long-names-tab")
 const bigArtistsPane = document.getElementById("big-artists-tab")
 
-const allSales = document.getElementById("all-sales");
+
 
 let allAlbums = musicData.slice();
+let longNames: Album[], bigArtistsAlbums: Album[];
 
-//add get separated artists per table
-function addAllArtists() {
-    let tableRows = "";
-    allAlbums.forEach(album => tableRows += `<tr><td>${album.name}</td><td>${album.artist}</td><td>${album.sales}</td></tr>`)
-    return tableRows;
+const tablePopulator = new TablePopulator();
+
+let totalAlbumSales = tablePopulator.getTotalSales(allAlbums)
+
+function loadFirstTime() {
+    tablePopulator.addArtistsToTable(artistsTable!,allAlbums)
+    allSales!.innerHTML = totalAlbumSales.toString() 
 }
 
+artistsPane!.addEventListener("click", () => {
+    loadFirstTime();
+})
 
-function getTotalSales() {
-    let totalSales = 0;
-    allAlbums.forEach(album => totalSales += album.sales)
-    return totalSales;
-}
+bigArtistsPane!.addEventListener("click", () => {
+    bigArtistsAlbums = allAlbums.filter(album => album.sales >= 1000000)
+    tablePopulator.addArtistsToTable(bigArtistsTable!, bigArtistsAlbums, "bigArtist");
+})
 
-function loadArtistTable() {
-    artistsTable!.innerHTML = "";
-    artistsTable!.innerHTML += addAllArtists()
-    allSales!.innerText = "";
-    allSales!.innerHTML = getTotalSales().toString() 
-}
+longNamesPane!.addEventListener("click", () => {
+    longNames = allAlbums.filter(album => album.artist.length >= 8)
+    tablePopulator.addArtistsToTable(longNamesTable!, longNames, "longName")
+})
 
-
-
-loadArtistTable();
+loadFirstTime();
 
 
