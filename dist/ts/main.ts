@@ -33,7 +33,7 @@ albumService.addAlbum(okComputer);
 
 function loadFirstTime() {
     allAlbums = albumService.musicAlbums;
-    totalAlbumSales = tablePopulator.getTotalSales(allAlbums);
+    totalAlbumSales = albumService.getTotalSales(allAlbums);
     tablePopulator.addArtistsToTable(artistsTable!,allAlbums);
     totalSalesContainer!.innerHTML = totalAlbumSales.toString() ;
 }

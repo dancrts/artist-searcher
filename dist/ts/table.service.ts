@@ -27,9 +27,4 @@ export class TablePopulator {
         return tableRows;
     }
     
-    getTotalSales(albums: Album[]) {
-        let totalAlbumSales = 0;
-        albums.forEach(album => totalAlbumSales += album.sales)
-        return totalAlbumSales;
-    }
 }

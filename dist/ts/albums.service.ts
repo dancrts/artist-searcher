@@ -42,4 +42,10 @@ export class AlbumService {
     getArtistsWithLongNames() {
         return this.musicAlbums.filter(album => album.artist.length >= 8)
     }
+
+    getTotalSales(albums: Album[]) {
+        let totalAlbumSales = 0;
+        albums.forEach(album => totalAlbumSales += album.sales)
+        return totalAlbumSales;
+    }
 }

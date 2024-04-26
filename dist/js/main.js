@@ -107,6 +107,15 @@ var AlbumService = /*#__PURE__*/function () {
         return album.artist.length >= 8;
       });
     }
+  }, {
+    key: "getTotalSales",
+    value: function getTotalSales(albums) {
+      var totalAlbumSales = 0;
+      albums.forEach(function (album) {
+        return totalAlbumSales += album.sales;
+      });
+      return totalAlbumSales;
+    }
   }]);
 }();
 
@@ -159,15 +168,6 @@ var TablePopulator = /*#__PURE__*/function () {
         return tableRows += _this.rowTemplate(album, albumType);
       });
       return tableRows;
-    }
-  }, {
-    key: "getTotalSales",
-    value: function getTotalSales(albums) {
-      var totalAlbumSales = 0;
-      albums.forEach(function (album) {
-        return totalAlbumSales += album.sales;
-      });
-      return totalAlbumSales;
     }
   }]);
 }();
@@ -268,7 +268,7 @@ albumService.deleteArtist("Justin Bieber");
 albumService.addAlbum(okComputer);
 function loadFirstTime() {
   allAlbums = albumService.musicAlbums;
-  totalAlbumSales = tablePopulator.getTotalSales(allAlbums);
+  totalAlbumSales = albumService.getTotalSales(allAlbums);
   tablePopulator.addArtistsToTable(artistsTable, allAlbums);
   totalSalesContainer.innerHTML = totalAlbumSales.toString();
 }
