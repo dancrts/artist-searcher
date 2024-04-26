@@ -31,6 +31,11 @@
                     type="button" role="tab" aria-controls="long-names-tab-pane" aria-selected="false">Grandes
                     nombres!</button>
             </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="search-artists-tab" data-bs-toggle="tab" data-bs-target="#search-artists-tab-pane"
+                    type="button" role="tab" aria-controls="search-artists-tab-pane" aria-selected="false">Buscar
+                    artistas!</button>
+            </li>
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="p-4 tab-pane fade show active" id="artists-tab-pane" role="tabpanel"
@@ -45,42 +50,28 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider" id="all-artist-table">
-                        
+                        <!-- Js Insert -->
                     </tbody>
                 </table>
-                <span>Entre todos estos artistas han vendido la maravillosa cantidad de: <span id="all-sales" class="fw-bold"></span> ventas!</span>
+                <span>Entre todos estos artistas han vendido la maravillosa cantidad de: <span id="all-sales"
+                        class="fw-bold"></span> ventas!</span>
             </div>
             <div class="p-4 tab-pane fade" id="big-artists-tab-pane" role="tabpanel" aria-labelledby="big-artists-tab"
                 tabindex="0">
                 Estos son los artistas que han vendido una gran cantidad de albumes! (Mas de 1 millon)
-                <table class="table mt-3">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre del album</th>
-                            <th scope="col">Artista</th>
-                            <th scope="col">Ventas</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider" id="big-artists-table">
-                        
-                    </tbody>
-                </table>
+                <div class="flex flex-column mt-3" id="big-artists-table">
+                    <!-- JS insert -->
+                </div>
             </div>
             <div class="p-4 tab-pane fade" id="long-names-tab-pane" role="tabpanel" aria-labelledby="long-names-tab"
                 tabindex="0">
                 Artistas con nombres muy largos! :D
-                <table class="table mt-3">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre del album</th>
-                            <th scope="col">Artista</th>
-                            <th scope="col">Ventas</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider" id="long-names-table">
-                        
-                    </tbody>
-                </table>
+                <div class="flex flex-column mt-3" id="long-names-table">
+                    <!-- JS insert -->
+                </div>
+            </div>
+            <div class="p-4 tab-pane fade" id="search-artists-tab-pane" role="tabpanel" aria-labelledby="search-artists-tab">
+                Holoooo
             </div>
         </div>
     </main>

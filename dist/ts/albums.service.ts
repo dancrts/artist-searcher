@@ -22,7 +22,7 @@ export class AlbumService {
     }
 
     deleteArtist(name: string) {
-        let albumsWithoutArtist = this.musicAlbums.filter(album => album.artist != name)
+        let albumsWithoutArtist = this.musicAlbums.filter(album => album.artist !== name)
         this.musicAlbums = albumsWithoutArtist
     }
 
@@ -31,7 +31,7 @@ export class AlbumService {
     }
 
     searchArtist(name: string) {
-        let albumsFromArtist = this.musicAlbums.filter(album => album.name == name)
+        let albumsFromArtist = this.musicAlbums.filter(album => album.artist.toLowerCase().includes(name.toLowerCase()))
         return albumsFromArtist;
     }
 

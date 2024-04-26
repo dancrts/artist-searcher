@@ -15,15 +15,19 @@ const bigArtistsPane = document.getElementById("big-artists-tab")
 
 
 
-let allAlbums: Album[],  longNames: Album[], bigArtistsAlbums: Album[];
+let allAlbums: Album[],  longNames: Album[], bigArtists: Album[];
 let totalAlbumSales : number;
 
 const albumService = new AlbumService();
 const tablePopulator = new TablePopulator();
 
+let okComputer: Album = { name: "Ok Computer", artist: "Radiohead", sales: 5000000 }
+
 albumService.deleteArtist("Adele")
 albumService.deleteArtist("Prince")
 albumService.deleteArtist("Justin Bieber")
+
+albumService.addAlbum(okComputer)
 
 function loadFirstTime() {
     allAlbums = albumService.musicAlbums
@@ -37,8 +41,8 @@ artistsPane!.addEventListener("click", () => {
 })
 
 bigArtistsPane!.addEventListener("click", () => {
-    bigArtistsAlbums = albumService.getAlbumsWithMostSales()
-    tablePopulator.addArtistsToTable(bigArtistsTable!, bigArtistsAlbums, "bigArtist");
+    bigArtists = albumService.getAlbumsWithMostSales()
+    tablePopulator.addArtistsToTable(bigArtistsTable!, bigArtists, "bigArtist");
 })
 
 longNamesPane!.addEventListener("click", () => {

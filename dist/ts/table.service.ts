@@ -3,10 +3,10 @@ import { Album } from "./album.model"
 export class TablePopulator {
     rowTemplate(album: Album, albumType: string): string {
         if (albumType === "bigArtist") {
-            return `<tr><td>${album.artist} es un gran artista!</td></tr>`
+            return `<div>${album.artist} es un gran artista!</div>`
         }
         else if (albumType === "longName") {
-            return `<tr><td>${album.artist} tiene un nombre muy grande</td></tr>`
+            return `<div>${album.artist} tiene un nombre muy grande</div>`
         }
         else {
             return `<tr><td>${album.name}</td><td>${album.artist}</td><td>${album.sales}</td></tr>`
